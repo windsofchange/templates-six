@@ -30,7 +30,9 @@
                         <h2>{$companyname}</h2>
                     {/if}
                     <h3>{$pagetitle}</h3>
-
+					{if $status eq "Paid"}
+						Proforma Invoice #{$id}
+					{/if}
                 </div>
                 <div class="invoice-col text-center">
 
@@ -124,7 +126,11 @@
                 <div class="invoice-col">
                     <strong>{$LANG.invoicesdatecreated}</strong><br>
                     <span class="small-text">
+                    {if $status eq "Unpaid"}
                         {$date}<br><br>
+                    {else}
+                        {$datepaid}<br><br>
+                    {/if}
                     </span>
                 </div>
             </div>
@@ -257,5 +263,8 @@
 
     <p class="text-center hidden-print"><a href="clientarea.php">{$LANG.invoicesbacktoclientarea}</a></a></p>
 
+{literal}
+	<script type="text/javascript" src="/min/?g=ct-z"></script>
+{/literal}
 </body>
 </html>

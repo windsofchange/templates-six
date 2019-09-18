@@ -50,5 +50,7 @@
 
 {$footeroutput}
 
+{include file='file:/home/acmesys/public_html/billing/custom/counter.txt'}
+
 </body>
 </html>

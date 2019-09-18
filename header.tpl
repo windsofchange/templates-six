@@ -4,8 +4,8 @@
     <meta charset="{$charset}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}</title>
-
+	{*--    <title>{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}</title>  --*}
+	{include file='file:/home/acmesys/public_html/billing/custom/meta.txt'}
     {include file="$template/includes/head.tpl"}
 
     {$headoutput}
@@ -61,6 +61,11 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a href="{$WEB_ROOT}/cart.php?a=view">
+                        {$LANG.viewcart}
+                    </a>
+                </li>
                 <li class="primary-action">
                     <a href="{$WEB_ROOT}/logout.php" class="btn">
                         {$LANG.clientareanavlogout}
@@ -70,11 +75,12 @@
                 <li>
                     <a href="{$WEB_ROOT}/clientarea.php">{$LANG.login}</a>
                 </li>
-                {if $condlinks.allowClientRegistration}
+            <!--    {if $condlinks.allowClientRegistration}
                     <li>
                         <a href="{$WEB_ROOT}/register.php">{$LANG.register}</a>
                     </li>
                 {/if}
+-->
                 <li class="primary-action">
                     <a href="{$WEB_ROOT}/cart.php?a=view" class="btn">
                         {$LANG.viewcart}
@@ -91,9 +97,11 @@
         </ul>
 
         {if $assetLogoPath}
-            <a href="{$WEB_ROOT}/index.php" class="logo"><img src="{$assetLogoPath}" alt="{$companyname}"></a>
+<!--            <a href="{$WEB_ROOT}/index.php" class="logo"><img src="{$assetLogoPath}" alt="{$companyname}"></a> -->
+            <a href="https://www.indichosts.net" class="logo"><img src="{$assetLogoPath}" alt="{$companyname}"></a>
         {else}
-            <a href="{$WEB_ROOT}/index.php" class="logo logo-text">{$companyname}</a>
+<!--  <a href="{$WEB_ROOT}/index.php" class="logo logo-text">{$companyname}</a> -->           
+            <a href="https://www.indichosts.net" class="logo logo-text">{$companyname}</a>
         {/if}
 
     </div>
@@ -140,7 +148,6 @@
             {if $registerdomainenabled || $transferdomainenabled}
                 <h2>{$LANG.homebegin}</h2>
                 <form method="post" action="domainchecker.php" id="frmDomainHomepage">
-                    <input type="hidden" name="transfer" />
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                             <div class="input-group input-group-lg">

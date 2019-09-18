@@ -6,3 +6,86 @@
     defined here.
 
 ***************************************************** */
+
+body {
+  #  font-size: 1.6em; 
+} 
+
+.navbar-main {background-color: #2c517b;
+border-color:#2e6da4;}
+/*  2c517b Blue - 4F535F black - f90 orange */
+
+.label-info {background-color:#f77 ;} /* #0e4f76cf */
+ul.top-nav>li.primary-action>a.btn {
+    background-color: #fff;
+    color: #777;
+}
+.label-warning {background-color: #f90;}
+
+.btn-success {color: #fff; background-color: #293239; border-color: #293239;}
+/* #4cae4c; */
+
+
+.tld-sale-group-sale {background-color: #f7d458;}    /* light blue 222DB4 */
+.domain-checker-container {
+    margin: 20px 0;
+    padding: 0;
+    background-color: #ffce44;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    background: -webkit-gradient(linear,0 0,0 100%,from(#ffb201),to(#ffd960));
+    background: -webkit-linear-gradient(top,#f90,#ffb201);
+    background: -moz-linear-gradient(top,#ffd960,#ffb201);
+    background: -ms-linear-gradient(top,#ffd960,#ffb201);
+    background: -o-linear-gradient(top,#ffd960,#ffb201);
+}
+
+.featured-tld .price.in {
+    background-color: #000;
+    color: #fff;
+}
+.featured-tld .price.org {
+    background-color: #193B4E;
+    color: #fff;
+}
+.featured-tld .price.ca {
+    background-color: #ea3438;
+    color: #fff;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    margin-top:9px;
+}
+
+.btn.btn-add-to-cart.checkout {
+    background-color: #5cb85c;
+    border-color: #006600;
+}
+
+/** clashed at domain checker .added {color: #5FB760; font-size: 1.1em;} **/
+
+.unavailable {
+    color: #ff0010;
+}
+
+span.status-active:hover, span.status-paid:hover {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+/**
+    background-color: #3fad46;
+    color: #FFFFFF;    
+**/
+}
+span.status-unpaid:hover {
+ 	color: #FFFFFF; 
+	background-color:#ff7777;
+	border-color: #fdb1ad; 
+}
+
+.featured-tld .price.xyz {
+    background-color: #ad4fc6;
+    color: #fff;
+}
