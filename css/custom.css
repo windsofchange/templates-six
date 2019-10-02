@@ -89,3 +89,7 @@ span.status-unpaid:hover {
     background-color: #ad4fc6;
     color: #fff;
 }
+
+input {
+    tent-size: 1.2em
+}
