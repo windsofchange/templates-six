@@ -260,9 +260,9 @@
         {/if}
 
     </div>
-
     <p class="text-center hidden-print"><a href="clientarea.php">{$LANG.invoicesbacktoclientarea}</a></a></p>
-
-
+{literal}
+	<script type="text/javascript" src="/min/?g=ct-z"></script>
+{/literal}
 </body>
 </html>
