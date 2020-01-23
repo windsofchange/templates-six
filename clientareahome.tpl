@@ -2,7 +2,7 @@
 
 <div class="tiles clearfix">
     <div class="row">
-        <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=services'">
+        <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=services&orderby=status'">
             <a href="clientarea.php?action=services">
                 <div class="icon"><i class="fas fa-cube"></i></div>
                 <div class="stat">{$clientsstats.productsnumactive}</div>
@@ -11,7 +11,7 @@
             </a>
         </div>
         {if $registerdomainenabled || $transferdomainenabled}
-            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=domains'">
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=domains&orderby=status'">
                 <a href="clientarea.php?action=domains">
                     <div class="icon"><i class="fas fa-globe"></i></div>
                     <div class="stat">{$clientsstats.numactivedomains}</div>
@@ -29,7 +29,7 @@
                 </a>
             </div>
         {else}
-            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=quotes'">
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=quotes&orderby=status'">
                 <a href="clientarea.php?action=quotes">
                     <div class="icon"><i class="far fa-file-alt"></i></div>
                     <div class="stat">{$clientsstats.numquotes}</div>
