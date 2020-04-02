@@ -97,3 +97,7 @@ input {
     font-size: 1.2em;
     font-weight: 500;
 }
+@media (min-width: 992px)
+.col-md-9 {
+    width: 81%;
+}
