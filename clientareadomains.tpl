@@ -33,7 +33,7 @@
                             <th width="20"></th>
                             <th></th>
                             <th>{$LANG.orderdomain}</th>
-                            <th>{$LANG.regdate}</th>
+                            <th><!-- {$LANG.regdate} --></th>
                             <th>{$LANG.nextdue}</th>
                             <th>{$LANG.domainsautorenew}</th>
                             <th>{$LANG.domainstatus}</th>
@@ -54,7 +54,11 @@
                                 {/if}
                             </td>
                             <td><a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a></td>
-                            <td><span class="hidden">{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate}</td>
+                            <td>{if $domain.status eq 'Active'}
+                                <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
+                                <i class="glyphicon glyphicon-globe"></i> <strong>DNS</strong></a>{/if}                            
+                            <!-- <span class="hidden">{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate} -->
+                            </td>
                             <td><span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}</td>
                             <td>
                                 {if $domain.autorenew}
