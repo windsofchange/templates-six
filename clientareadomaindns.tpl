@@ -2,6 +2,8 @@
 
 {include file="$template/includes/alert.tpl" type="info" msg=$LANG.domaindnsmanagementdesc}
 
+{include file="$template/includes/alert.tpl" type="success" msg=$LANG.domaindnsmanagementnameservers}
+
 {if $error}
     {include file="$template/includes/alert.tpl" type="error" msg=$error}
 {/if}
