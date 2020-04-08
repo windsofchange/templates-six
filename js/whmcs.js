@@ -275,6 +275,9 @@ jQuery(document).ready(function() {
     // Prevent malicious window.opener activity from auto-linked URLs
     jQuery('a.autoLinked').click(function (e) {
         e.preventDefault();
+        if (jQuery(this).hasClass('disabled')) {
+            return false;
+        }
 
         var child = window.open();
         child.opener = null;
@@ -316,7 +319,7 @@ jQuery(document).ready(function() {
                 button.find('.loading').hide().end().removeAttr('disabled');
                 form.find('.login-feedback').html('');
                 if (data.error) {
-                    form.find('.login-feedback').html(data.error);
+                    form.find('.login-feedback').html(data.error).hide().removeClass('hidden').slideDown();
                 }
                 if (data.redirect !== undefined && data.redirect.substr(0, 7) === 'window|') {
                     window.open(data.redirect.substr(7), '_blank');
@@ -494,14 +497,16 @@ jQuery(document).ready(function() {
         });
     });
 
+    var btnResendEmail = jQuery('#btnResendVerificationEmail');
+
     // Email verification
-    jQuery('#btnResendVerificationEmail').click(function() {
+    jQuery(btnResendEmail).click(function() {
         WHMCS.http.jqClient.post('clientarea.php',
             {
                 'token': csrfToken,
                 'action': 'resendVerificationEmail'
             }).done(function(data) {
-                jQuery('#btnResendVerificationEmail').html('Email Sent').prop('disabled', true);
+                jQuery(btnResendEmail).text(jQuery(btnResendEmail).data('email-sent')).prop('disabled', true);
             });
     });
 
