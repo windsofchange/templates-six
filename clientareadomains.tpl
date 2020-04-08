@@ -33,8 +33,8 @@
                             <th width="20"></th>
                             <th></th>
                             <th>{$LANG.orderdomain}</th>
-                            <th><!-- {$LANG.regdate} --></th>
-                            <th>{$LANG.nextdue}</th>
+                            <th><!-- {$LANG.regdate} -->Manage</th>
+                            <!--<th>{$LANG.nextdue}</th> -->
                             <th>{$LANG.domainsautorenew}</th>
                             <th>{$LANG.domainstatus}</th>
                             <th>&nbsp;</th>
@@ -53,33 +53,55 @@
                                     <img src="{$BASE_PATH_IMG}/ssl/ssl-inactive-domain.png" data-toggle="tooltip" title="{lang key='sslState.sslInactiveDomain'}">
                                 {/if}
                             </td>
-                            <td><a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a></td>
+                            <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a></td>--><span style="font-size:1.1em;">{$domain.domain}</style>
                             <td>{if $domain.status eq 'Active'}
-                                <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
-                                <i class="glyphicon glyphicon-globe"></i> <strong>DNS</strong></a>{/if}                            
-                            <!-- <span class="hidden">{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate} -->
+                                  <a  title-class="" title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
+                                    <i class="glyphicon glyphicon-globe"></i> <strong>DNS</strong></a> |
+                                  <a title="Edit WHOIS" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
+                                    <i class="glyphicon glyphicon-user"></i> WHOIS</a> |
+                                  <a title="Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
+                                    <i class="glyphicon glyphicon-eye-open"></i> Privacy</a>
+                                {/if}
+                                {if $domain.status eq 'Expired'}
+                                    {if $allowrenew}
+                                          <a href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> {lang key='domainsrenew'}</a>
+                                    {/if}
+                                {/if}
+                                <!--{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate}-->
                             </td>
-                            <td><span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}</td>
+                       <!--      <td><span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}</td> -->
                             <td>
                                 {if $domain.status eq 'Active'}{if $domain.autorenew}
-                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Disable Auto Renew to manually renew {$domain.domain}">                                
-                                    <i class="fas fa-fw fa-check text-success"></i> {$LANG.domainsautorenewenabled}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Disable Auto Renew">
+                                    <!--<i class="fas fa-fw fa-check text-success"></i>--> {$LANG.domainsautorenewenabled}
                                     </a>
                                 {else}
-                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Enable Auto Renew to automatically generate renewal invoice for {$domain.domain}">
-                                    <i class="fas fa-fw fa-times text-danger"></i> {$LANG.domainsautorenewdisabled}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Enable Auto Renew">
+                                    <!-- <i class="fas fa-fw fa-times text-danger"></i>--> {$LANG.domainsautorenewdisabled}
                                     </a>
                                 {/if}{/if}
                             </td>
                             <td>
                                 <span class="label status status-{$domain.statusClass}">{$domain.statustext}</span>
+                                {if $domain.status eq 'Active'}
+                                <span style="font-size: 0.81em">&nbsp;&nbsp; Expiry Date {$domain.nextduedate}</span>
+                                    {if $domain.autorenew}
+                                        <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Auto-renew Enabled">
+                                       <!-- <i class="fas fa-fw fa-check text-success"> --></i>
+                                        </a>
+                                    {else}
+                                        <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Auto-renew Disabled">
+                                        <!-- <i class="fas fa-fw fa-times text-danger"> --></i>
+                                        </a>
+                                    {/if}
+                                {/if}
                                 <span class="hidden">
                                     {if $domain.expiringSoon}<span>{lang key="domainsExpiringSoon"}</span>{/if}
                                 </span>
                             </td>
-                            <td>
-                                <div class="btn-group btn-group-sm" style="width:60px;">
-                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fas fa-wrench"></i></a>
+                           <td>
+                               <div class="btn-group btn-group-sm" style="width:30px /**60px**/;">
+                                <!-->    <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fas fa-wrench"></i></a> -->
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                         <span class="caret"></span>
                                         <span class="sr-only">Toggle Dropdown</span>
@@ -102,6 +124,7 @@
                                         {/if}
                                     </ul>
                                 </div>
+
                             </td>
                         </tr>
                     {/foreach}
