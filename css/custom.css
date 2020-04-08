@@ -101,3 +101,6 @@ input {
 .container {
     width: 1220px;
 }
+div.header-lined .breadcrumb {
+    font-size: .9em;
+}
