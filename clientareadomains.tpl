@@ -55,12 +55,16 @@
                             </td>
                             <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a></td>--><span style="font-size:1.0em;">{$domain.domain}</style>
                             <td>{if $domain.status eq 'Active'}
-                                  <a  title-class="" title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
+                                  <a title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
                                     <i class="glyphicon glyphicon-globe"></i>&nbsp;<strong>DNS</strong></a>
                                 {/if}
-                                {if $domain.status eq 'Expired'}
+                                {if $domain.status eq 'Grace'}
                                     {if $allowrenew}
-                                          <a href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> {lang key='domainsrenew'}</a>
+                                          <a style="color:red;" href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> {lang key='domainsrenew'}</a>
+                                    {/if}
+                                {elseif $domain.status eq 'Redemption'}
+                                    {if $allowrenew}
+                                          <a style="color:#ff7777;" href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> {lang key='domainsrenew'}</a>
                                     {/if}
                                 {/if}
                                 <!--{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate}-->
@@ -90,8 +94,8 @@
                             </td>
                             <td>
                                 <span class="label status status-{$domain.statusClass}">{$domain.statustext}</span>
-                                {if $domain.status eq 'Active'}
-                                <span style="font-size: 0.81em">&nbsp;&nbsp; Expiry Date {$domain.nextduedate}</span> |
+                                {if $domain.status eq 'Active' or $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
+                                <span style="font-size: 0.81em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">&nbsp;&nbsp; Expiry Date {$domain.nextduedate}</span> |
                                 {if $domain.autorenew}
                                     <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
                                     <i class="fas fa-fw fa-check text-success"></i> <!--{$LANG.domainsautorenewenabled}-->
