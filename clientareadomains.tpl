@@ -9,13 +9,13 @@
             {
                 var table = jQuery('#tableDomainsList').removeClass('hidden').DataTable();
                 {if $orderby == 'domain'}
-                    table.order(2, '{$sort}');
-                {elseif $orderby == 'regdate' || $orderby == 'registrationdate'}
-                    table.order(3, '{$sort}');
-                {elseif $orderby == 'nextduedate'}
-                    table.order(4, '{$sort}');
-                {elseif $orderby == 'autorenew'}
-                    table.order(5, '{$sort}');
+                    table.order(2, '{$sort}'), [3, 'asc']);
+            //**    {elseif $orderby == 'regdate' || $orderby == 'registrationdate'}
+            //**        table.order(3, '{$sort}');
+            //**    {elseif $orderby == 'nextduedate'}
+            //**        table.order(4, '{$sort}');
+            //**    {elseif $orderby == 'autorenew'}
+            //**        table.order(5, '{$sort}');
                 {elseif $orderby == 'status'}
                     table.order(6, '{$sort}');
                 {/if}
@@ -34,8 +34,8 @@
                             <th></th>
                             <th>{$LANG.orderdomain}</th>
                             <th><!-- {$LANG.regdate} -->Manage</th>
-                            <!--<th>{$LANG.nextdue}</th> -->
-                            <th>{$LANG.domainsautorenew}</th>
+                            <th><!-- {$LANG.nextdue} -->WHOIS</th>
+                            <th><!-- {$LANG.domainsautorenew}--> Privacy</th>
                             <th>{$LANG.domainstatus}</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -53,14 +53,10 @@
                                     <img src="{$BASE_PATH_IMG}/ssl/ssl-inactive-domain.png" data-toggle="tooltip" title="{lang key='sslState.sslInactiveDomain'}">
                                 {/if}
                             </td>
-                            <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a></td>--><span style="font-size:1.1em;">{$domain.domain}</style>
+                            <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a></td>--><span style="font-size:1.0em;">{$domain.domain}</style>
                             <td>{if $domain.status eq 'Active'}
                                   <a  title-class="" title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
-                                    <i class="glyphicon glyphicon-globe"></i> <strong>DNS</strong></a> |
-                                  <a title="Edit WHOIS" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
-                                    <i class="glyphicon glyphicon-user"></i> WHOIS</a> |
-                                  <a title="Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
-                                    <i class="glyphicon glyphicon-eye-open"></i> Privacy</a>
+                                    <i class="glyphicon glyphicon-globe"></i>&nbsp;<strong>DNS</strong></a>
                                 {/if}
                                 {if $domain.status eq 'Expired'}
                                     {if $allowrenew}
@@ -69,31 +65,42 @@
                                 {/if}
                                 <!--{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate}-->
                             </td>
-                       <!--      <td><span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}</td> -->
+                            <td><!--<span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}-->
+                                {if $domain.status eq 'Active'}
+                                <a title="Edit WHOIS" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
+                                    <i class="glyphicon glyphicon-user"></i> Edit</a>
+                                {/if}
+                            </td>
                             <td>
+                                {if $domain.status eq 'Active'}
+                                <a title="Enable Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
+                                    <i class="glyphicon glyphicon-eye-open"></i> Manage</a>
+                                {/if}
+                                <!--
                                 {if $domain.status eq 'Active'}{if $domain.autorenew}
                                     <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Disable Auto Renew">
-                                    <!--<i class="fas fa-fw fa-check text-success"></i>--> {$LANG.domainsautorenewenabled}
+                                    <i class="fas fa-fw fa-check text-success"></i> {$LANG.domainsautorenewenabled}
                                     </a>
                                 {else}
                                     <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Enable Auto Renew">
-                                    <!-- <i class="fas fa-fw fa-times text-danger"></i>--> {$LANG.domainsautorenewdisabled}
+                                    <i class="fas fa-fw fa-times text-danger"></i> {$LANG.domainsautorenewdisabled}
                                     </a>
                                 {/if}{/if}
+                                -->
                             </td>
                             <td>
                                 <span class="label status status-{$domain.statusClass}">{$domain.statustext}</span>
                                 {if $domain.status eq 'Active'}
-                                <span style="font-size: 0.81em">&nbsp;&nbsp; Expiry Date {$domain.nextduedate}</span>
-                                    {if $domain.autorenew}
-                                        <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Auto-renew Enabled">
-                                       <!-- <i class="fas fa-fw fa-check text-success"> --></i>
-                                        </a>
-                                    {else}
-                                        <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Auto-renew Disabled">
-                                        <!-- <i class="fas fa-fw fa-times text-danger"> --></i>
-                                        </a>
-                                    {/if}
+                                <span style="font-size: 0.81em">&nbsp;&nbsp; Expiry Date {$domain.nextduedate}</span> |
+                                {if $domain.autorenew}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
+                                    <i class="fas fa-fw fa-check text-success"></i> <!--{$LANG.domainsautorenewenabled}-->
+                                    </a>
+                                {else}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Disabled">
+                                    <i class="fas fa-fw fa-times text-danger"></i> <!--{$LANG.domainsautorenewdisabled} -->
+                                    </a>
+                                {/if}
                                 {/if}
                                 <span class="hidden">
                                     {if $domain.expiringSoon}<span>{lang key="domainsExpiringSoon"}</span>{/if}
@@ -124,7 +131,6 @@
                                         {/if}
                                     </ul>
                                 </div>
-
                             </td>
                         </tr>
                     {/foreach}
