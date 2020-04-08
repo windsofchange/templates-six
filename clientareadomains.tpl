@@ -53,7 +53,27 @@
                                     <img src="{$BASE_PATH_IMG}/ssl/ssl-inactive-domain.png" data-toggle="tooltip" title="{lang key='sslState.sslInactiveDomain'}">
                                 {/if}
                             </td>
-                            <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a></td>--><span style="font-size:1.0em;">{$domain.domain}</style>
+                            <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a>-->
+                            <span style="font-size:1.04em;font-weight:600;">{$domain.domain}</span>
+                            {if $domain.status eq 'Active' or $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
+                                <br/><span style="font-size: 0.81em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">
+                                Expiry Date&nbsp; {$domain.nextduedate}</span>
+                                {if $domain.autorenew}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
+                                    <i class="fas fa-fw fa-check text-success"></i> <!--{$LANG.domainsautorenewenabled}-->
+                                    </a>
+                                {else}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Disabled">
+                                    <i class="fas fa-fw fa-times text-danger"></i> <!--{$LANG.domainsautorenewdisabled} -->
+                                    </a>
+                                {/if}
+                            {/if}
+
+                            {if $domain.status eq 'Active' and $domain.expiringSoon}
+                                <br/><span style="font-size:0.86em;color:#FF7777;">
+{lang key="domainsExpiringSoon"} in {$domain.daysUntilExpiry} days</span>
+                            {/if}
+                            </td>
                             <td>{if $domain.status eq 'Active'}
                                   <a title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
                                     <i class="glyphicon glyphicon-globe"></i>&nbsp;<strong>DNS</strong></a>
@@ -94,18 +114,6 @@
                             </td>
                             <td>
                                 <span class="label status status-{$domain.statusClass}">{$domain.statustext}</span>
-                                {if $domain.status eq 'Active' or $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
-                                <span style="font-size: 0.81em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">&nbsp;&nbsp; Expiry Date {$domain.nextduedate}</span> |
-                                {if $domain.autorenew}
-                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
-                                    <i class="fas fa-fw fa-check text-success"></i> <!--{$LANG.domainsautorenewenabled}-->
-                                    </a>
-                                {else}
-                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Disabled">
-                                    <i class="fas fa-fw fa-times text-danger"></i> <!--{$LANG.domainsautorenewdisabled} -->
-                                    </a>
-                                {/if}
-                                {/if}
                                 <span class="hidden">
                                     {if $domain.expiringSoon}<span>{lang key="domainsExpiringSoon"}</span>{/if}
                                 </span>
