@@ -61,11 +61,15 @@
                             </td>
                             <td><span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}</td>
                             <td>
-                                {if $domain.autorenew}
+                                {if $domain.status eq 'Active'}{if $domain.autorenew}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Disable Auto Renew to manually renew {$domain.domain}">                                
                                     <i class="fas fa-fw fa-check text-success"></i> {$LANG.domainsautorenewenabled}
+                                    </a>
                                 {else}
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" title-class="" title="Enable Auto Renew to automatically generate renewal invoice for {$domain.domain}">
                                     <i class="fas fa-fw fa-times text-danger"></i> {$LANG.domainsautorenewdisabled}
-                                {/if}
+                                    </a>
+                                {/if}{/if}
                             </td>
                             <td>
                                 <span class="label status status-{$domain.statusClass}">{$domain.statustext}</span>
