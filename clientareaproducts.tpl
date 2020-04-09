@@ -63,3 +63,4 @@
         <p><i class="fas fa-spinner fa-spin"></i> {$LANG.loading}</p>
     </div>
 </div>
+{include file="$template/includes/alert.tpl" type="info" msg=$LANG.activeproductlistingonly}
