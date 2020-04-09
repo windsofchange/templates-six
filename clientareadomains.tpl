@@ -170,5 +170,6 @@
                 {/if}
             </ul>
         </div>
+        {include file="$template/includes/alert.tpl" type="info" msg=$LANG.activedomainlistingonly}
     </div>
 </div>
