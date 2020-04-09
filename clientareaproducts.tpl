@@ -30,6 +30,7 @@
         </thead>
         <tbody>
             {foreach key=num item=service from=$services}
+            {if $service.status eq "Active" or $service.status eq "Suspended" or $service.status eq "Pending"}
                 <tr onclick="clickableSafeRedirect(event, 'clientarea.php?action=productdetails&amp;id={$service.id}', false)">
                     <td class="text-center{if $service.sslStatus} ssl-info{/if}" data-element-id="{$service.id}" data-type="service"{if $service.domain} data-domain="{$service.domain}"{/if}>
                         {if $service.sslStatus}
@@ -38,9 +39,15 @@
                             <img src="{$BASE_PATH_IMG}/ssl/ssl-inactive-domain.png" data-toggle="tooltip" title="{lang key='sslState.sslInactiveService'}">
                         {/if}
                     </td>
-                    <td><strong>{$service.product}</strong>{if $service.domain}<br /><a href="http://{$service.domain}" target="_blank">{$service.domain}</a>{/if}</td>
-                    <td class="text-center" data-order="{$service.amountnum}">{$service.amount}<br />{$service.billingcycle}</td>
-                    <td class="text-center"><span class="hidden">{$service.normalisedNextDueDate}</span>{$service.nextduedate}</td>
+             <!--       <td><strong>{$service.product}</strong>{if $service.domain}<br /><a href="http://{$service.domain}" target="_blank">{$service.domain}</a>{/if}</td> -->
+                    <td><strong>{$service.product}</strong>{if $service.domain}<br /><span style="font-size:0.95em"><i class="glyphicon glyphicon-globe"></i> {$service.domain}<br/><i class="glyphicon glyphicon-tasks"></i> {$service.server.hostname}  {$service.server.ipaddress}</span>{/if}</td>
+                    {if $service.status eq "Active" or $service.status eq "Suspended"}
+                        <td class="text-center" data-order="{$service.amountnum}">{$service.amount}<br />{$service.billingcycle}</td>
+                        <td class="text-center"><span class="hidden">{$service.normalisedNextDueDate}</span>{$service.nextduedate}</td>
+                    {else}
+                        <td class="text-center" data-order="{$service.amountnum}"></td>
+                        <td class="text-center"></td>
+                    {/if}
                     <td class="text-center"><span class="label status status-{$service.status|strtolower}">{$service.statustext}</span></td>
                     <td class="responsive-edit-button" style="display: none;">
                         <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="btn btn-block btn-info">
@@ -48,6 +55,7 @@
                         </a>
                     </td>
                 </tr>
+             {/if}
             {/foreach}
         </tbody>
     </table>
