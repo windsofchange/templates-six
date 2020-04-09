@@ -42,7 +42,7 @@
                     </thead>
                     <tbody>
                     {foreach key=num item=domain from=$domains}
-                    {if $domain.status eq "Active" or $domain.status eq "Suspended" or $domain.status eq "Pending" or $domain.status eq "Grace" or $domain.status eq "Redemption"}
+                    {if $domain.status eq "Active" or $domain.status eq "Suspended" or $domain.status eq "Pending" or $domain.status eq "Pending Registration" or $domain.status eq "Pending Transfer" or $domain.status eq "Grace" or $domain.status eq "Redemption"}
                         <tr onclick="clickableSafeRedirect(event, 'clientarea.php?action=domaindetails&amp;id={$domain.id}', false)">
                             <td>
                                 <input type="checkbox" name="domids[]" class="domids stopEventBubble" value="{$domain.id}" />
@@ -57,7 +57,7 @@
                             <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a>-->
                             <span style="font-size:1.04em;font-weight:600;">{$domain.domain}</span>
                             {if $domain.status eq 'Active' or $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
-                                <br/><span style="font-size: 0.9em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">
+                                <br/><span style="font-size: 0.90em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">
                                 Expiry Date&nbsp; {$domain.nextduedate}</span>
                                 {if $domain.autorenew}
                                     <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
