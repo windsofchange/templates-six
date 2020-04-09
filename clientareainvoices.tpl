@@ -35,10 +35,10 @@
         </thead>
         <tbody>
             {foreach key=num item=invoice from=$invoices}
-                <tr onclick="clickableSafeRedirect(event, 'viewinvoice.php?id={$invoice.id}', false)">
-                    <td><a title="Download PDF" href="dl.php?type=i&id={$invoice.id}"> <i class="fas fa-download fa-fw" style="font-size: 1.2em;color=#636363"></i></a>&nbsp;&nbsp;
+                <tr {if $invoice.statusClass eq "unpaid"} onclick="clickableSafeRedirect(event, 'viewinvoice.php?id={$invoice.id}', false)" {/if}>
+                    <td><a title="Download PDF" href="dl.php?type=i&id={$invoice.id}"> <i class="fas fa-download fa-fw" style="font-size: 1.1em;color=#636363"></i></a>&nbsp;&nbsp;
                     {$invoice.id} {if $invoice.statusClass eq "paid"} // {* Paid Invoice#*} {$invoice.invoicenum}{/if}{$item.description}</td>
-                    <td>{if $invoice.statusClass eq "paid"}<span class="hidden">{$invoice.normalisedDateCreated}</span>{$invoice.datecreated}{/if}</td>
+                    <td>{if $invoice.statusClass eq "paid"}<span class="hidden">{$invoice.normalisedDateCreated}</span>{$invoice.datecreated}{elseif $invoice.statusClass eq "unpaid"}<span style="text-align:center;color:#ed3e48;">Pay Now</span>{/if}</td>
                     <td>{if $invoice.statusClass eq "unpaid"}<span class="hidden">{$invoice.normalisedDateDue}</span>{$invoice.datedue}{/if}</td>
                     <td data-order="{$invoice.totalnum}">{$invoice.total}</td>
                     <td><span class="label status status-{$invoice.statusClass}">{$invoice.status}</span></td>
