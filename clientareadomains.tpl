@@ -57,7 +57,7 @@
                             <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a>-->
                             <span style="font-size:1.04em;font-weight:600;">{$domain.domain}</span>
                             {if $domain.status eq 'Active' or $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
-                                <br/><span style="font-size: 0.81em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">
+                                <br/><span style="font-size: 0.9em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">
                                 Expiry Date&nbsp; {$domain.nextduedate}</span>
                                 {if $domain.autorenew}
                                     <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
