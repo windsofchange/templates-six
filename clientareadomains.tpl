@@ -57,8 +57,17 @@
                             <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a>-->
                             <span style="font-size:1.04em;font-weight:600;">{$domain.domain}</span>
                             {if $domain.status eq 'Active' or $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
-                                <br/><span style="font-size: 0.90em;{if $domain.status eq 'Grace'}color:red;{elseif $domain.status eq 'Redemption'}color:#ff7777;{/if}">
-                                Expiry Date&nbsp; {$domain.nextduedate}</span>
+                                <br/><span style="font-size: 0.90em;{if $domain.status eq 'Grace'}
+                                                                      color:#ff7777;
+                                                                    {elseif $domain.status eq 'Redemption'}
+                                                                      color:red;
+                                                                    {/if}">
+                                {if $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
+                                    Expired on&nbsp;
+                                {else}
+                                    Renew by&nbsp;
+                                {/if}
+                                {$domain.nextduedate}</span>
                                 {if $domain.autorenew}
                                     <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
                                     <i class="fas fa-fw fa-check text-success"></i> <!--{$LANG.domainsautorenewenabled}-->
@@ -71,8 +80,7 @@
                             {/if}
 
                             {if $domain.status eq 'Active' and $domain.expiringSoon}
-                                <br/><span style="font-size:0.86em;color:#FF7777;">
-{lang key="domainsExpiringSoon"} in {$domain.daysUntilExpiry} days</span>
+                                <br/><span style="font-size:0.86em;color:#FF7777;">{lang key="domainsExpiringSoon"} in {$domain.daysUntilExpiry} days</span>
                             {/if}
                             </td>
                             <td>{if $domain.status eq 'Active'}
@@ -81,11 +89,11 @@
                                 {/if}
                                 {if $domain.status eq 'Grace'}
                                     {if $allowrenew}
-                                          <a style="color:red;" href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> {lang key='domainsrenew'}</a>
+                                          <a style="color:#ff7777;" href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> {lang key='domainsrenew'}</a>
                                     {/if}
                                 {elseif $domain.status eq 'Redemption'}
                                     {if $allowrenew}
-                                          <a style="color:#ff7777;" href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> {lang key='domainsrenew'}</a>
+                                          <a style="color:red;" href="cart/domain/renew"><i class="glyphicon glyphicon-refresh"></i> <strong>Renew Now</strong></a>
                                     {/if}
                                 {/if}
                                 <!--{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate}-->
@@ -170,6 +178,6 @@
                 {/if}
             </ul>
         </div>
-        {include file="$template/includes/alert.tpl" type="info" msg=$LANG.activedomainlistingonly}
+        {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.activedomainlistingonly}
     </div>
 </div>
