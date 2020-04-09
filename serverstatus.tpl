@@ -40,9 +40,12 @@
                     <th class="text-center">HTTP</th>
                     <th class="text-center">FTP</th>
                     <th class="text-center">POP3</th>
-                    <th class="text-center">{$LANG.serverstatusphpinfo}</th>
+                    <th class="text-center">SMTP</th>
+                    <th class="text-center">MySQL</th>
+         <!--           <th class="text-center">{$LANG.serverstatusphpinfo}</th>
                     <th class="text-center">{$LANG.serverstatusserverload}</th>
                     <th class="text-center">{$LANG.serverstatusuptime}</th>
+        -->
                 </tr>
             </thead>
             <tbody>
@@ -57,22 +60,31 @@
                         </td>
                         <td class="text-center" id="port110_{$num}">
                             <span class="fas fa-spinner fa-spin"></span>
-                        </td>
+                <!--        </td>
                         <td class="text-center"><a href="{$server.phpinfourl}" target="_blank">{$LANG.serverstatusphpinfo}</a></td>
                         <td class="text-center" id="load{$num}">
                             <span class="fas fa-spinner fa-spin"></span>
                         </td>
                         <td class="text-center" id="uptime{$num}">
                             <span class="fas fa-spinner fa-spin"></span>
+                              -->
                             <script>
                             jQuery(document).ready(function() {
                                 checkPort({$num}, 80);
                                 checkPort({$num}, 21);
                                 checkPort({$num}, 110);
-                                getStats({$num});
+                                checkPort({$num}, 25);
+                                checkPort({$num}, 3306);
+                            getStats({$num});
                             });
                             </script>
-                        </td>
+                      </td>
+                      <td class="text-center" id="port25_{$num}">
+                            <span class="fas fa-spinner fa-spin"></span>
+                      </td>
+                      <td class="text-center" id="port3306_{$num}">
+                            <span class="fas fa-spinner fa-spin"></span>
+                      </td>
                     </tr>
                 {foreachelse}
                     <tr>
@@ -82,5 +94,5 @@
             </tbody>
         </table>
     </div>
-
+    {include file="$template/includes/alert.tpl" type="info" msg=$LANG.thirdpartyuptimereport}
 {/if}
