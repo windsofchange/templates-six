@@ -42,6 +42,7 @@
                     </thead>
                     <tbody>
                     {foreach key=num item=domain from=$domains}
+                    {if $domain.status eq "Active" or $domain.status eq "Suspended" or $domain.status eq "Pending" or $domain.status eq "Grace" or $domain.status eq "Redemption"}
                         <tr onclick="clickableSafeRedirect(event, 'clientarea.php?action=domaindetails&amp;id={$domain.id}', false)">
                             <td>
                                 <input type="checkbox" name="domids[]" class="domids stopEventBubble" value="{$domain.id}" />
@@ -145,6 +146,7 @@
                                 </div>
                             </td>
                         </tr>
+                    {/if}
                     {/foreach}
                     </tbody>
                 </table>
