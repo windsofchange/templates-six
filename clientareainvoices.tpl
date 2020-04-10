@@ -44,9 +44,11 @@
                         <span class="hidden">{$invoice.normalisedDateCreated}</span>{$invoice.datecreated}
                     {elseif $invoice.statusClass eq "unpaid"}
                             {if $invoice.datedue|strtotime < $todaysdate|strtotime}
-                                {$LANG.invoicespastduedate}
+                                <a href="submitticket.php?step=2&deptid=3&subject=PastDue-Invoice#{$invoice.id}" title='Renewal overdue. Talk to us' />
+                                    <i style='color:#636363;font-size:1.1em;' class='glyphicon glyphicon-off'></i> {$LANG.invoicespastduedate},</a>
+                                    {$LANG.invoicesoverduedate}
                             {elseif $invoice.datedue|strtotime == $todaysdate|strtotime}
-                                {$LANG.invoiceduetoday}
+                                {$LANG.invoicesduetoday}
                             {else}
                                 {$LANG.invoicesnotdue}
                            {/if}
