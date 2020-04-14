@@ -104,22 +104,13 @@ input {
 div.header-lined .breadcrumb {
     font-size: .95em;
 }
-span.status-redemption {
-    color: #ff0000bf;
+span.status-redemption, span.status-grace, span.status-suspended {
+    color: #f77;
     background-color: #ff777703;
-    border-color: #ebccd1;
+    border-color: #ccc;
 }
-span.status-redemption:hover {
+span.status-redemption:hover, span.status-grace:hover, span.status-suspended:hover {
     color: #ffffff;
     background-color: #fF7777;
     border-color: #fdb1ad;
-/**
-    background-color: #f77;
-    color: #FFFFFF;
-**/
-}
-span.status-suspended {
-    color: red;
-    background-color: #f2dede;
-    border-color: #ebccd1;
 }
