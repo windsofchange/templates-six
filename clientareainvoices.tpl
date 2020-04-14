@@ -4,7 +4,7 @@
     {
         var table = jQuery('#tableInvoicesList').removeClass('hidden').DataTable();
         {if $orderby == 'default'}
-            table.order([4, 'desc'], [2, 'desc']);
+            table.order([4, 'desc'], [2, 'desc'], [1, 'desc']);
         {elseif $orderby == 'invoicenum'}
             table.order(0, '{$sort}');
         {elseif $orderby == 'date'}
