@@ -18,10 +18,10 @@
 
                 {if $serverdata.nameserver1 || $serverdata.nameserver2 || $serverdata.nameserver3 || $serverdata.nameserver4 || $serverdata.nameserver5}
                                         <div class="row">
-                                            <div class="col-sm-5 text-right">
+                                            <div class="col-sm-6 text-right">
                                                 {$LANG.domainnameservers}
                                             </div>
-                                            <div class="col-sm-7 text-left">
+                                            <div class="col-sm-5 text-left">
                                                 {if $serverdata.nameserver1}{$serverdata.nameserver1}<br />{/if}
                                                 {if $serverdata.nameserver2}{$serverdata.nameserver2}<br />{/if}
                                                 {if $serverdata.nameserver3}{$serverdata.nameserver3}<br />{/if}
@@ -35,7 +35,7 @@
                 <p>
                     <a href="http://{$domain}" class="btn btn-default btn-sm" target="_blank">{$LANG.visitwebsite}</a>
                     {if $domainId}
-                        <a href="clientarea.php?action=domaindetails&id={$domainId}" class="btn btn-success btn-sm" target="_blank">{$LANG.managedomain}</a>
+                        <a href="clientarea.php?action=domaindetails&id={$domainId}#tabNameservers" class="btn btn-success btn-sm" target="_blank">{$LANG.managedomain}</a>
                     {/if}
                     <input type="button" onclick="popupWindow('whois.php?domain={$domain}','whois',650,420);return false;" value="{$LANG.whoisinfo}" class="btn btn-info btn-sm" />
                 </p>
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-<!--        {if $availableAddonProducts} -->
+<!--        add FTP details seection -->
             <div class="panel panel-default" id="2cPanelExtrasPurchasePanel">
                 <div class="panel-heading">
                     <h3 class="panel-title"><!--{$LANG.cPanel.addonsExtras}--> SFTP/FTP Login</h3>
@@ -58,7 +58,6 @@
                     
                 </div>
             </div>
-        {/if}
 
     </div>
     <div class="col-md-6">
