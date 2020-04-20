@@ -13,7 +13,7 @@
                 <div class="cpanel-package-details">
                     <em>{$groupname}</em>
                     <h4 style="margin:0;">{$product}</h4>
-                    <a href="http://{$domain}" target="_blank">www.{$domain}</a>
+                    <a href="http://www.{$domain}" target="_blank">{$domain}</a>
                 </div>
 
                 {if $serverdata.nameserver1 || $serverdata.nameserver2 || $serverdata.nameserver3 || $serverdata.nameserver4 || $serverdata.nameserver5}
@@ -46,16 +46,16 @@
 <!--        add FTP details seection -->
             <div class="panel panel-default" id="2cPanelExtrasPurchasePanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><!--{$LANG.cPanel.addonsExtras}--> SFTP/FTP Login</h3>
+                    <h3 class="panel-title">{$LANG.sftplogininfo}</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="col-xs-6 text-right">FTP Hostname</div> 
-                    <div class="col-xs-5">{$serverdata.hostname}</div> <br />   
-                <div class="col-xs-6 text-right">FTP Username</div><div class="col-xs-5"> {$username}</div> <br />
-                <div class="col-xs-6 text-right">FTP Password</div><div class="col-xs-5"> {$password}</div> <br />
-                <div class="col-xs-6 text-right">FTP Port</div><div class="col-xs-5"> 21</div> 
-                <div class="col-xs-6 text-right">Download FTP Client</div><div class="col-xs-5"> <a href="https://filezilla-project.org/download.php" target="_blank">FileZilla</a></div> 
-                    
+                    <div class="col-xs-6 text-right">{$LANG.sftphostname}</div>
+                    <div class="col-xs-5">{$serverdata.hostname}</div> <br />
+                <div class="col-xs-6 text-right">{$LANG.sftpusername}</div><div class="col-xs-5"> {$username}</div> <br />
+                <div class="col-xs-6 text-right">{$LANG.sftppassword}</div><div class="col-xs-5"> {$password}</div> <br />
+                <div class="col-xs-6 text-right">{$LANG.sftpport}</div><div class="col-xs-5"> {$LANG.sftpport21}</div>
+                <div class="col-xs-6 text-right">{$LANG.sftpclientdownload}</div><div class="col-xs-5"> {$LANG.sftpclientdownloadlink} </div>
+
                 </div>
             </div>
 
@@ -134,8 +134,8 @@
         </div>
 
 
-    
-<!-- moved the addon box here -->    
+
+<!-- moved the addon box here -->
             {if $availableAddonProducts}
             <div class="panel panel-default" id="cPanelExtrasPurchasePanel">
                 <div class="panel-heading">
@@ -159,8 +159,8 @@
                 </div>
             </div>
         {/if}
-<!-- end Addon box -->    
-    </div>    
+<!-- end Addon box -->
+    </div>
 </div>
 
 {foreach $hookOutput as $output}
