@@ -11,9 +11,10 @@
             <div class="panel-body text-center">
 
                 <div class="cpanel-package-details">
-                    <em>{$groupname}</em>
+                    <!-- <em>{$groupname}</em> -->
                     <h4 style="margin:0;">{$product}</h4>
-                    <a href="http://www.{$domain}" target="_blank">{$domain}</a>
+                    <a href="http://www.{$domain}" target="_blank">{$domain}</a><br />
+                    IPv4: {if $dedicatedip} {$dedicatedip}{else}{$serverdata.ipaddress}{/if}
                 </div>
 
                 {if $serverdata.nameserver1 || $serverdata.nameserver2 || $serverdata.nameserver3 || $serverdata.nameserver4 || $serverdata.nameserver5}
@@ -72,25 +73,25 @@
                     <div class="col-sm-5 col-sm-offset-1 col-xs-6" id="diskUsage">
                         <strong>{$LANG.cPanel.diskUsage}</strong>
                         <br /><br />
-                        <input type="text" value="{$diskpercent|substr:0:-1}" class="usage-dial" data-fgColor="#308947" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($diskpercent, 0, -1) > 100}{$diskpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
+                        <input type="text" value="{$diskpercent|substr:0:-1}" class="usage-dial" data-fgColor="{if $diskpercent|substr:0:-1 > 100}#FB3138{else}#308947{/if}" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($diskpercent, 0, -1) > 100}{$diskpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
                         <br /><br />
-                        <span style="color:#308947;font-weight:600;">{($diskusage/1000)|number_format:2f} GB</span> of {($disklimit/1000)|number_format:0f} GB
+                        <span style="color:{if $diskpercent|substr:0:-1 > 100}#FB3138{else}#308947{/if};font-weight:600;">{($diskusage/1000)|number_format:1f} GB</span> of {($disklimit/1000)|number_format:0f} GB
                     </div>
                     <div class="col-sm-5 col-xs-6" id="bandwidthUsage">
                         <strong>{$LANG.cPanel.bandwidthUsage}</strong>
                         <br /><br />
-                        <input type="text" value="{$bwpercent|substr:0:-1}" class="usage-dial" data-fgColor="#4075B8" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($bwpercent, 0, -1) > 100}{$bwpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
+                        <input type="text" value="{$bwpercent|substr:0:-1}" class="usage-dial" data-fgColor="{if $bwpercent|substr:0:-1 > 100}#FB3138{else}#4075B8{/if}" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($bwpercent, 0, -1) > 100}{$bwpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
                         <br /><br />
-                        <span style="color:#4075B8;font-weight:600;">{($bwusage/1000)|number_format:2f} GB</span> of {($bwlimit/1000)|number_format:0f} GB
+                        <span style="color:{if $bwpercent|substr:0:-1 > 100}#FB3138{else}#4075B8{/if};font-weight:600;">{($bwusage/1000)|number_format:1f} GB</span> of {($bwlimit/1000)|number_format:0f} GB
                     </div>
                 </div>
 
                 {if $bwpercent|substr:0:-1 > 75}
                     <div class="text-danger limit-near">
                         {if $bwpercent|substr:0:-1 > 100}
-                            {$LANG.cPanel.usageStatsBwOverLimit}
+                            {$bwpercent} {$LANG.cPanel.usageStatsBwOverLimit}
                         {else}
-                            {$LANG.cPanel.usageStatsBwLimitNear}
+                            {$bwpercent} {$LANG.cPanel.usageStatsBwLimitNear}
                         {/if}
                         {if $packagesupgrade}
                             <a href="upgrade.php?type=package&id={$serviceid}" class="btn btn-xs btn-danger">
@@ -102,9 +103,9 @@
                 {elseif $diskpercent|substr:0:-1 > 75}
                     <div class="text-danger limit-near">
                         {if $diskpercent|substr:0:-1 > 100}
-                            {$LANG.cPanel.usageStatsDiskOverLimit}
+                            {$diskpercent} {$LANG.cPanel.usageStatsDiskOverLimit}
                         {else}
-                            {$LANG.cPanel.usageStatsDiskLimitNear}
+                            {$diskpercent} {$LANG.cPanel.usageStatsDiskLimitNear}
                         {/if}
                         {if $packagesupgrade}
                             <a href="upgrade.php?type=package&id={$serviceid}" class="btn btn-xs btn-danger">
