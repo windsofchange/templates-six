@@ -72,16 +72,16 @@
                     <div class="col-sm-5 col-sm-offset-1 col-xs-6" id="diskUsage">
                         <strong>{$LANG.cPanel.diskUsage}</strong>
                         <br /><br />
-                        <input type="text" value="{$diskpercent|substr:0:-1}" class="usage-dial" data-fgColor="#444" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($diskpercent, 0, -1) > 100}{$diskpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
+                        <input type="text" value="{$diskpercent|substr:0:-1}" class="usage-dial" data-fgColor="#308947" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($diskpercent, 0, -1) > 100}{$diskpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
                         <br /><br />
-                        {$diskusage} M / {$disklimit} M
+                        <span style="color:#308947;font-weight:600;">{($diskusage/1000)|number_format:2f} GB</span> of {($disklimit/1000)|number_format:0f} GB
                     </div>
                     <div class="col-sm-5 col-xs-6" id="bandwidthUsage">
                         <strong>{$LANG.cPanel.bandwidthUsage}</strong>
                         <br /><br />
-                        <input type="text" value="{$bwpercent|substr:0:-1}" class="usage-dial" data-fgColor="#d9534f" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($bwpercent, 0, -1) > 100}{$bwpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
+                        <input type="text" value="{$bwpercent|substr:0:-1}" class="usage-dial" data-fgColor="#4075B8" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($bwpercent, 0, -1) > 100}{$bwpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
                         <br /><br />
-                        {$bwusage} M / {$bwlimit} M
+                        <span style="color:#4075B8;font-weight:600;">{($bwusage/1000)|number_format:2f} GB</span> of {($bwlimit/1000)|number_format:0f} GB
                     </div>
                 </div>
 
