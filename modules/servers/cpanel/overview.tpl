@@ -14,9 +14,14 @@
                     <!-- <em>{$groupname}</em> -->
                     <h4 style="margin:0;">{$product}</h4>
                     <a href="http://www.{$domain}" target="_blank">{$domain}</a><br />
-                    IPv4: {if $dedicatedip} {$dedicatedip}{else}{$serverdata.ipaddress}{/if}
                 </div>
-
+                <div class="row">
+                    <div class="col-sm-6 text-right">
+                        IPv4 Address</div>
+                    <div class="col-sm-5 text-left">
+                         {if $dedicatedip} {$dedicatedip}{else}{$serverdata.ipaddress}{/if}</div>
+                </div>
+                <br />
                 {if $serverdata.nameserver1 || $serverdata.nameserver2 || $serverdata.nameserver3 || $serverdata.nameserver4 || $serverdata.nameserver5}
                                         <div class="row">
                                             <div class="col-sm-6 text-right">
@@ -31,8 +36,6 @@
                                             </div>
                                         </div>
                 {/if}
-
-                <br />
                 <p>
                     <a href="http://{$domain}" class="btn btn-default btn-sm" target="_blank">{$LANG.visitwebsite}</a>
                     {if $domainId}
