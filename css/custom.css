@@ -134,9 +134,3 @@ span.status-redemption:hover, span.status-grace:hover, span.status-suspended:hov
 .text-danger {
     color: #FB3138; /** #a94442; **/
 }
-order-standard_cart .order-summary {
-    margin: 0 0 20px 0;
-    padding: 0;
-    background-color: #465054;
-    border-bottom: 3px solid #465054;
-    border-radius: 4px;
