@@ -37,20 +37,20 @@
             {foreach key=num item=invoice from=$invoices}
             {if $invoice.rawstatus neq "cancelled"}
                 <tr {if $invoice.statusClass eq "unpaid"} onclick="clickableSafeRedirect(event, 'viewinvoice.php?id={$invoice.id}', false)" {/if}>
-                    <td><a title="Download PDF" href="dl.php?type=i&id={$invoice.id}"> <i class="fas fa-download fa-fw" style="font-size: 1.1em;color=#636363"></i></a>&nbsp;&nbsp;
+                    <td><a data-toggle="tooltip" title="Download PDF" href="dl.php?type=i&id={$invoice.id}"> <i class="fas fa-download fa-fw" style="font-size: 1.17em;color=#636363"></i></a>&nbsp;&nbsp;
                     {$invoice.id} {if $invoice.statusClass eq "paid"} // {* Paid Invoice#*} {$invoice.invoicenum}{/if}{$item.description}</td>
                     <td>
                     {if $invoice.statusClass eq "paid"}
                         <span class="hidden">{$invoice.normalisedDateCreated}</span>{$invoice.datecreated}
                     {elseif $invoice.statusClass eq "unpaid"}
                             {if $invoice.datedue|strtotime < $todaysdate|strtotime}
-                                <a href="submitticket.php?step=2&deptid=3&subject=PastDue-Invoice#{$invoice.id}" title='Renewal overdue. Talk to us' />
+                                <a data-toggle='tooltip' href="submitticket.php?step=2&deptid=3&subject=PastDue-Invoice#{$invoice.id}" title='We value your comments, click to open ticket' />
                                     <i style='color:#636363;font-size:1.1em;' class='glyphicon glyphicon-off'></i> {$LANG.invoicespastduedate},</a>
-                                    {$LANG.invoicesoverduedate}
+                                    <a href="viewinvoice.php?id={$invoice.id}" data-toggle="tooltip" title="Pay Now">{$LANG.invoicesoverduedate}</a>
                             {elseif $invoice.datedue|strtotime == $todaysdate|strtotime}
-                                {$LANG.invoicesduetoday}
+            <a href="viewinvoice.php?id={$invoice.id}" data-toggle="tooltip" title="Click to Pay Now">{$LANG.invoicesduetoday}</a>
                             {else}
-                                {$LANG.invoicesnotdue}
+            <a href="viewinvoice.php?id={$invoice.id}" data-toggle="tooltip" title="Click Pay Invoice">{$LANG.invoicesnotdue}</a>
                            {/if}
                     {/if}
                     </td>
