@@ -159,7 +159,7 @@
 
         <br />
 
-        <h4 class="text-center">{$LANG.domainautorenewstatus}: <span class="label label-{if $autorenew}success{else}danger{/if}">{if $autorenew}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h4>
+        <h2 class="text-center">{$LANG.domainautorenewstatus}: <span class="label label-{if $autorenew}success{else}danger{/if}">{if $autorenew}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h2>
 
         <br />
         <br />
@@ -195,7 +195,7 @@
                 {include file="$template/includes/alert.tpl" type="error" msg=$error textcenter=true}
             {/if}
         {/if}
-
+        
         {include file="$template/includes/alert.tpl" type="info" msg=$LANG.domainnsexp}
 
         <form class="form-horizontal" role="form" method="post" action="{$smarty.server.PHP_SELF}?action=domaindetails#tabNameservers">
@@ -224,7 +224,15 @@
                 <input type="submit" class="btn btn-primary" value="{$LANG.changenameservers}" />
             </p>
         </form>
+        <br />
+        {if $defaultns && $clientsstats.productsnumhosting > 0 }
 
+          {else}
+            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.domainnsnameserverhinthosting}
+        {/if}
+        {if $addonstatus.dnsmanagement}
+            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.domainnsnameserverhint}
+        {/if}
     </div>
     <div class="tab-pane fade" id="tabReglock">
 
@@ -242,7 +250,7 @@
 
         <br />
 
-        <h4 class="text-center">{$LANG.domainreglockstatus}: <span class="label label-{if $lockstatus == "locked"}success{else}danger{/if}">{if $lockstatus == "locked"}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h4>
+        <h1 class="text-center">{$LANG.domainreglockstatus}: <span class="label label-{if $lockstatus == "locked"}success{else}danger{/if}">{if $lockstatus == "locked"}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h1>
 
         <br />
         <br />
@@ -358,4 +366,3 @@
         {/if}
     </div>
 </div>
-
