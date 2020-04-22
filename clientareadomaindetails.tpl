@@ -65,7 +65,20 @@
             <div class="col-sm-offset-1 col-sm-5">
                 <h4><strong>{$LANG.clientareastatus}:</strong></h4> {$status}
             </div>
+             <div class="col-sm-6">
+                <h4><strong>{$LANG.privacystatus}:</strong></h4> 
+                 {if $addons.idprotection}
+                    {if $addonstatus.idprotection}
+                        <img src="assets/img/ssl/ssl-active.png" height="16" />{$LANG.privacyactive}
+                    {else}
+                        <img src="assets/img/ssl/ssl-inactive.png" height="16" />{$LANG.privacyexposed}
+                    {/if}
+                 {else}
+                    {$LANG.privacynotavailable}
+                 {/if}
+            </div>
         </div>
+        <!-- disable SSL promo in domain details
         {if $sslStatus}
             <div class="row">
                 <div class="col-sm-offset-1 col-sm-5{if $sslStatus->isInactive()} ssl-inactive{/if}">
@@ -87,6 +100,7 @@
                     </div>
                 </div>
             {/if}
+          -->
         {/if}
 
         {if $registrarclientarea}
