@@ -69,9 +69,9 @@
                 <h4><strong>{$LANG.privacystatus}:</strong></h4> 
                  {if $addons.idprotection}
                     {if $addonstatus.idprotection}
-                        <img src="assets/img/ssl/ssl-active.png" height="16" />{$LANG.privacyactive}
+                        <img src="assets/img/ssl/ssl-active.png" height="16" /> {$LANG.privacyactive}
                     {else}
-                        <img src="assets/img/ssl/ssl-inactive.png" height="16" />{$LANG.privacyexposed}
+                        <img src="assets/img/ssl/ssl-inactive.png" height="16" /> {$LANG.privacyexposed}
                     {/if}
                  {else}
                     {$LANG.privacynotavailable}
