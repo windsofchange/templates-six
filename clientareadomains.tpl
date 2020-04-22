@@ -9,7 +9,7 @@
             {
                 var table = jQuery('#tableDomainsList').removeClass('hidden').DataTable();
                 {if $orderby == 'domain'}
-                    table.order(2, '{$sort}'), [3, 'asc']);
+                    table.order(2, '{$sort}'), [3, 'desc']);
             //**    {elseif $orderby == 'regdate' || $orderby == 'registrationdate'}
             //**        table.order(3, '{$sort}');
             //**    {elseif $orderby == 'nextduedate'}
@@ -69,11 +69,11 @@
                                 {/if}
                                 {$domain.nextduedate}</span>
                                 {if $domain.autorenew}
-                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
+                                    <a data-toggle="tooltip" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
                                     <i class="fas fa-fw fa-check text-success"></i> <!--{$LANG.domainsautorenewenabled}-->
                                     </a>
                                 {else}
-                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Disabled">
+                                    <a  data-toggle="tooltip" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Disabled">
                                     <i class="fas fa-fw fa-times text-danger"></i> <!--{$LANG.domainsautorenewdisabled} -->
                                     </a>
                                 {/if}
@@ -84,7 +84,7 @@
                             {/if}
                             </td>
                             <td>{if $domain.status eq 'Active'}
-                                  <a title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
+                                  <a  data-toggle="tooltip" title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
                                     <i class="glyphicon glyphicon-globe"></i>&nbsp;<strong>DNS</strong></a>
                                 {/if}
                                 {if $domain.status eq 'Grace'}
@@ -100,13 +100,13 @@
                             </td>
                             <td><!--<span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}-->
                                 {if $domain.status eq 'Active'}
-                                <a title="Edit WHOIS" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
+                                <a  data-toggle="tooltip" title="Edit WHOIS" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
                                     <i class="glyphicon glyphicon-user"></i> Edit</a>
                                 {/if}
                             </td>
                             <td>
                                 {if $domain.status eq 'Active'}
-                                <a title="Enable Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
+                                <a  data-toggle="tooltip" title="Manage Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
                                     <i class="glyphicon glyphicon-eye-open"></i> Manage</a>
                                 {/if}
                                 <!--
