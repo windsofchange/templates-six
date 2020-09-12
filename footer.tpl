@@ -13,7 +13,7 @@
 <section id="footer">
     <div class="container">
         <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
-        <p>{lang key="copyrightFooterNotice" year=$date_year company=$companyname}</p>
+        <p>{lang key="copyrightFooterNotice" year=$date_year company=$companyname} | Visitor IP address: {$smarty.server.REMOTE_ADDR}</p>
     </div>
 </section>
 
