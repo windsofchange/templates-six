@@ -275,8 +275,6 @@
             </div>
         </div>
     </div>
-{literal}
-	<script type="text/javascript" src="/min/?g=ct-z"></script>
-{/literal}
+
 </body>
 </html>
