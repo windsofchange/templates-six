@@ -8015,6 +8015,12 @@ input[type='file'].form-control {
     color: #808080;
 }
 
+.has-error button {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
 /*
  * Language strings which are too long to fit into buttons should be "chopped off" inside the div
  * of that button, instead of "overflowing" outside of the button.  CORE-9272
@@ -8290,6 +8296,13 @@ div.header-lined small {
     display: inline-block;
     padding: 20px;
     max-width: 400px;
+}
+
+.compact-control-bar {
+    margin: 0;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 3px;
 }
 
 /**
@@ -9802,6 +9815,32 @@ table.dtr-inline.collapsed .responsive-edit-button {
 
 /**
  * -------------------------
+ * @section Requestor Types
+ * -------------------------
+ */
+
+.requestor-type-operator {
+    background-color: #5bc0de;
+}
+.requestor-type-owner {
+    background-color: #5cb85c;
+}
+.requestor-type-authorizeduser {
+    background-color: #777;
+}
+.requestor-type-externaluser {
+    background-color: #f0ad4e;
+}
+.requestor-type-subaccount {
+    background-color: #777;
+}
+.requestor-type-guest {
+    background-color: #ccc;
+}
+
+
+/**
+ * -------------------------
  * @section Support Ticket Feedback
  * -------------------------
  */
@@ -11159,6 +11198,16 @@ div.md-editor.active {
     background-color: #3090e0;
 }
 
+.promo-banner.ox {
+    border-top: 3px solid #666;
+}
+.promo-banner.ox a {
+    color: #666;
+}
+.promo-banner.ox .btn {
+    background-color: #666;
+}
+
 .mc-panel-promo {
     font-size: 0.95em;
 }
@@ -11329,6 +11378,13 @@ div.md-editor.active {
     padding: 10px 20px 20px;
     background-color: #f8f8f8;
     border-radius: 3px;
+}
+
+@media (max-width: 767px) {
+    .btn-xs-block {
+        display: block;
+        width: 100%;
+    }
 }
 
 /*
@@ -11658,6 +11714,48 @@ form[data-role="json-form"] .has-error .tooltip.top .tooltip-arrow {
 
 .modal-metric-pricing .modal-footer {
     padding-bottom: 45px;
+}
+
+/**
+ * Select Account
+ */
+
+.select-account {
+    margin: 20px auto;
+    padding: 0;
+    border-top: 1px solid #ddd;
+}
+.select-account a {
+    display: block;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+}
+.select-account a.disabled {
+    opacity: 0.5;
+}
+.select-account a:hover {
+    background-color: #f6f6f6;
+}
+
+.continue-container {
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f6f6f6;
+    border: 1px solid #eee;
+    max-width: 500px;
+}
+
+/**
+ * Invites
+ */
+
+.invite-box {
+    margin: 20px 0;
+    padding: 20px;
+    background-color:#f6f6f6;
+    border:1px solid #eee;
 }
 
 /**
