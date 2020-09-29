@@ -264,13 +264,7 @@
 
     </div>
 
-{literal}
-	<script type="text/javascript" src="/min/?g=ct-z"></script>
-{/literal}
-
 <p class="text-center hidden-print"><a href="clientarea.php">{$LANG.invoicesbacktoclientarea}</a></a></p>
-
-
 
     <div id="fullpage-overlay" class="hidden">
         <div class="outer-wrapper">
@@ -281,6 +275,8 @@
             </div>
         </div>
     </div>
-
+{literal}
+	<script type="text/javascript" src="/min/?g=ct-z"></script>
+{/literal}
 </body>
 </html>
