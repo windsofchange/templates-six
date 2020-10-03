@@ -7,26 +7,22 @@
 
 ***************************************************** */
 
-body {
-  #  font-size: 1.6em;
+body {# font-size: 1.6em;}
+.navbar-main {background-color: #2c517b; /** #444d58 #465054  **/ border-color:#2e6da4;}
+@media (min-width: 1200px) {
+    .container {width: 1220px;}
 }
-
-.navbar-main {
-    background-color: #465054 /** #2c517b **/;
-    border-color:#2e6da4;
-}
-/*  2c517b Blue - 4F535F black - f90 orange */
-
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .navbar-main {background-color: #2c517b;}
-    body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    body {
+       /** font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; **/
         font-size: 16px !important;
         line-height: 1.42857143;
         color: #333;
         background-color: #fff;
     }
-    #order-standard_cart label {font-weight: 300; color: #666; 
+    #order-standard_cart label {font-weight: 300; color: #666;
         font-size: 16px !important;}
     /** .list-group {font-size: 1em;} **/
     .suggested-domains .btn:not(.domain-contact-support) {
@@ -39,17 +35,17 @@ body {
     color: #fff;
     }
 }
-
 @media only screen and (max-width: 380px) {
     /* For mobile phones: */
     .navbar-main {background-color: #2c517b;}
-    body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    body {
+        /** font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; **/
         font-size: 16px !important;
         line-height: 1.42857143;
         color: #333;
         background-color: #fff;
     }
-    #order-standard_cart label {font-weight: 300; color: #666; 
+    #order-standard_cart label {font-weight: 300; color: #666;
         font-size: 16px !important;}
     /** .list-group {font-size: 1em;} **/
     .suggested-domains .btn:not(.domain-contact-support) {
@@ -61,7 +57,7 @@ body {
     border-color: #333;
     color: #fff;
     }
-    
+
     #order-standard_cart .field, #order-standard_cart .form-control {
     position: relative;
     vertical-align: top;
@@ -77,7 +73,6 @@ body {
     font-size: 12.5px !important;
     }
 }
-
 #order-standard_cart .sub-heading span, #order-standard_cart .sub-heading-borderless span {
     display: inline-block;
     position: relative;
@@ -87,38 +82,19 @@ body {
     color: #058;
     background-color: #fff;
 }
-
 #order-standard_cart .panel-addon .panel-body label {
     font-size: 1.2em !important;
     font-weight: 700;
     color: #333;
 }
-
-.label-info {background-color:#f77 ;} /* #0e4f76cf */
 ul.top-nav>li.primary-action>a.btn {
-    background-color: #fff;
-    color: #777;
-}
+    background-color: #fff;color: #777;}
+.label-info {background-color:#f77 ;} /* #0e4f76cf */
 .label-warning {background-color: #f90;}
-
 .btn-success {color: #fff; background-color: #293239; border-color: #293239;}
- /*    color:  #333;
-    background-color: #ffa53be0;
-    border-color: #fdbc70; */
-
-/** .btn-success:hover {
-    color: #000;
-    background-color: #ffa53be0;
-    border-color: #fdbc70;
-}
-**/
-
 .btn-success.disabled.focus, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled].focus, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover {
-    background-color: #f7b76ceb;
-    border-color: #ffa53be0;
-}
-
-.tld-sale-group-sale {background-color: #f7d458;}    /* light blue 222DB4 */
+    background-color: #f7b76ceb;border-color: #ffa53be0;}
+.tld-sale-group-sale {background-color: #f7d458;}
 .domain-checker-container {
     margin: 20px 0;
     padding: 0;
@@ -133,100 +109,36 @@ ul.top-nav>li.primary-action>a.btn {
     background: -ms-linear-gradient(top,#ffd960,#ffb201);
     background: -o-linear-gradient(top,#ffd960,#ffb201);
 }
-
-.featured-tld .price.in {
-    background-color: #000;
-    color: #fff;
-}
-.featured-tld .price.org {
-    background-color: #193B4E;
-    color: #fff;
-}
-.featured-tld .price.ca {
-    background-color: #ea3438;
-    color: #fff;
-}
-
-.btn-group-sm>.btn, .btn-sm {
-    margin-top:9px;
-}
-
-.btn.btn-add-to-cart.checkout {
-    background-color: #5cb85c;
-    border-color: #006600;
-}
-
-/** clashed at domain checker .added {color: #5FB760; font-size: 1.1em;} **/
-
-.unavailable {
-    color: #ff0010;
-}
-
+.featured-tld .price.in {background-color: #000; color: #fff;}
+.featured-tld .price.org {background-color: #193B4E; color: #fff;}
+.featured-tld .price.ca {background-color: #ea3438; color: #fff;}
+.featured-tld .price.xyz {background-color: #ad4fc6;color: #fff;}
+.btn-group-sm>.btn, .btn-sm {margin-top:9px;}
+.btn.btn-add-to-cart.checkout {background-color: #5cb85c; border-color: #006600;}
+.unavailable {color: #ff0010;}
 span.status-active:hover, span.status-paid:hover {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-/**
-    background-color: #3fad46;
-    color: #FFFFFF;
-**/
-}
+    color: #3c763d;background-color: #dff0d8;border-color: #d6e9c6;}
 span.status-unpaid:hover {
- 	color: #FFFFFF;
-	background-color:#ff7777;
-	border-color: #fdb1ad;
-}
-
-.featured-tld .price.xyz {
-    background-color: #ad4fc6;
-    color: #fff;
-}
-
-input {
-    font-size: 1.2em
-}
-.kbarticles a {
-    font-size: 1.2em;
-    font-weight: 500;
-}
-@media (min-width: 1200px)
-.container {
-    width: 1220px;
-}
-div.header-lined .breadcrumb {
-    font-size: .95em;
-}
+ 	color: #FFFFFF;background-color:#ff7777;border-color: #fdb1ad;}
 span.status-redemption, span.status-grace, span.status-suspended {
-    color: #f77;
-    background-color: #ff777703;
-    border-color: #ccc;
-}
+    color: #f77; background-color: #ff777703; border-color: #ccc;}
 span.status-redemption:hover, span.status-grace:hover, span.status-suspended:hover {
-    color: #ffffff;
-    background-color: #fF7777;
-    border-color: #fdb1ad;
-/**
-    background-color: #f77;
-    color: #FFFFFF;
-**/
-}
-.text-danger {
-    color: #FB3138; /** #a94442; **/
-}
-
+    color: #ffffff; background-color: #fF7777;border-color: #fdb1ad;}
+div.header-lined .breadcrumb {font-size: .95em;}
+.text-danger {color: #FB3138; /** #a94442; **/ }
 .added {color:#84ff85; font-size: 1.1em; font-weight: 900;}
 .achecker{color:white; font-size: 1em; font-weight: 900;}
 .acheckerspotlight {color: #84ff85; font-size: 0.9em; font-weight: 900;}
 .acheckerotherhits {color: #84ff85; font-size: 1em; font-weight: 900;}
-
 .btx.disabled, btn[disabled], fieldset[disabled] .btn {
     cursor: not-allowed;
     opacity: .50;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.spotlight-tld span {
-    display: block;
-    padding: 5px 0;
-    font-weight: 900;
-}
+.spotlight-tld span {display: block;padding: 5px 0; font-weight: 900;}
+input {font-size: 1.2em}
+.kbarticles a {font-size: 1.2em;font-weight: 500;}
+.panel {font-size: .95em;}
+
+
