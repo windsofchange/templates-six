@@ -9,7 +9,7 @@
             {
                 var table = jQuery('#tableDomainsList').removeClass('hidden').DataTable();
                 {if $orderby == 'domain'}
-                    table.order(2, '{$sort}'), [3, 'desc']);
+                    table.order(3, '{$sort}'), [3, 'asc']);
             //**    {elseif $orderby == 'regdate' || $orderby == 'registrationdate'}
             //**        table.order(3, '{$sort}');
             //**    {elseif $orderby == 'nextduedate'}
