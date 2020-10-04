@@ -201,7 +201,7 @@
 
         <br />
 
-        <h3 class="text-center">{$LANG.domainautorenewstatus}: <span class="label label-{if $autorenew}success{else}danger{/if}">{if $autorenew}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h3>
+        <h3 class="text-center">{$LANG.domainautorenewstatus}: <span class="label2 label-{if $autorenew}success{else}danger{/if}">{if $autorenew}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h3>
 
         <br />
         <br />
@@ -292,7 +292,7 @@
 
         <br />
 
-        <h3 class="text-center">{$LANG.domainreglockstatus}: <span class="label label-{if $lockstatus == "locked"}success{else}danger{/if}">{if $lockstatus == "locked"}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h3>
+        <h3 class="text-center">{$LANG.domainreglockstatus}: <span class="label2 label-{if $lockstatus == "locked"}success{else}danger{/if}">{if $lockstatus == "locked"}{$LANG.domainsautorenewenabled}{else}{$LANG.domainsautorenewdisabled}{/if}</span></h3>
 
         <br />
         <br />
