@@ -39,34 +39,17 @@
 
         <div class="row">
             <div class="col-sm-offset-1 col-sm-5">
-                <h4><strong>{$LANG.clientareahostingdomain}:</strong></h4> <a href="http://{$domain}" target="_blank">{$domain}</a>
+                <h4><strong>{$LANG.clientareahostingdomain}</strong></h4> <a href="http://{$domain}" target="_blank">{$domain}</a>
             </div>
             <div class="col-sm-5">
-                <h4><strong>{$LANG.firstpaymentamount}:</strong></h4> <span>{$firstpaymentamount}</span>
+         <!--       <h4><strong>{$LANG.firstpaymentamount}:</strong></h4> <span>{$firstpaymentamount}</span> -->
+                <h4><strong>{$LANG.clientareahostingregdate}</strong></h4> <span>{$registrationdate}</span>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-offset-1 col-sm-5">
-                <h4><strong>{$LANG.clientareahostingregdate}:</strong></h4> <span>{$registrationdate}</span>
-            </div>
-            <div class="col-sm-6">
-                <h4><strong>{$LANG.recurringamount}:</strong></h4> {$recurringamount} {$LANG.every} {$registrationperiod} {$LANG.orderyears}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-5">
-                <h4><strong>{$LANG.clientareahostingnextduedate}:</strong></h4> {$nextduedate}
-            </div>
-            <div class="col-sm-6">
-                <h4><strong>{$LANG.orderpaymentmethod}:</strong></h4> {$paymentmethod}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-5">
-                <h4><strong>{$LANG.clientareastatus}:</strong></h4> {$status}
-            </div>
-             <div class="col-sm-6">
-                <h4><strong>{$LANG.privacystatus}:</strong></h4> 
+              <!--  <h4><strong>{$LANG.clientareahostingregdate}</strong></h4> <span>{$registrationdate}</span> -->
+                <h4><strong>{$LANG.privacystatus}</strong></h4>
                  {if $addons.idprotection}
                     {if $addonstatus.idprotection}
                         <img src="assets/img/ssl/ssl-active.png" height="16" /> {$LANG.privacyactive}
@@ -77,54 +60,61 @@
                     {$LANG.privacynotavailable}
                  {/if}
             </div>
+            <div class="col-sm-6">
+            <!--    <h4><strong>{$LANG.recurringamount}:</strong></h4> {$recurringamount} {$LANG.every} {$registrationperiod} {$LANG.orderyears} -->
+                 <h4><strong>{$LANG.clientareahostingnextduedate}</strong></h4> {$nextduedate}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-5">
+               <!-- <h4><strong>{$LANG.clientareahostingnextduedate}:</strong></h4> {$nextduedate} -->
+            </div>
+            <div class="col-sm-6">
+              <!--  <h4><strong>{$LANG.orderpaymentmethod}:</strong></h4> {$paymentmethod} -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-5">
+             <!--  <h4><strong>{$LANG.clientareastatus}:</strong></h4> {$status}  -->
+                <h4><strong>{$LANG.domaindnsmanagement}</strong></h4>
+                 {if $addons.dnsmanagement}
+                    {if $addonstatus.dnsmanagement}
+                        <img src="assets/img/ssl/ssl-active.png" height="16" /> {$LANG.domainsautorenewenabled}
+                    {else}
+                        <img src="assets/img/ssl/ssl-inactive.png" height="16" /> {$LANG.domainsautorenewdisenabled}
+                    {/if}
+                 {else}
+                    {$LANG.privacynotavailable}
+                 {/if}
+            </div>
+             <div class="col-sm-6">
+                <h4><strong>{$LANG.domainregistrarlock}</strong></h4>
+                    {if $lockstatus == "locked"}
+                        <img src="assets/img/ssl/ssl-active.png" height="16" />{$LANG.domainsautorenewenabled}
+                    {else}
+                        <img src="assets/img/ssl/ssl-inactive.png" height="16" />{$LANG.domainsautorenewdisabled}
+                    {/if}
+            </div>
         </div>
         <!-- disable SSL promo in domain details
         {if $sslStatus}
             <div class="row">
                 <div class="col-sm-offset-1 col-sm-5{if $sslStatus->isInactive()} ssl-inactive{/if}">
-                    <h4><strong>{$LANG.sslState.sslStatus}</strong></h4> <img src="{$sslStatus->getImagePath()}" width="16" data-type="domain" data-domain="{$domain}" data-showlabel="1" class="{$sslStatus->getClass()}"/>
-                    <span id="statusDisplayLabel">
-                        {if !$sslStatus->needsResync()}
-                            {$sslStatus->getStatusDisplayLabel()}
-                        {else}
-                            {$LANG.loading}
-                        {/if}
-                    </span>
+                    <h4><strong>{$LANG.sslState.sslStatus}</strong></h4> <img src="{$sslStatus->getImagePath()}" width="16"> {$sslStatus->getStatusDisplayLabel()}
                 </div>
-                {if $sslStatus->isActive() || $sslStatus->needsResync()}
+                {if $sslStatus->isActive()}
                     <div class="col-sm-6">
-                        <h4><strong>{$LANG.sslState.startDate}</strong></h4>
-                        <span id="ssl-startdate">
-                            {if !$sslStatus->needsResync() || $sslStatus->startDate}
-                                {$sslStatus->startDate->toClientDateFormat()}
-                            {else}
-                                {$LANG.loading}
-                            {/if}
-                        </span>
+                        <h4><strong>{$LANG.sslState.startDate}</strong></h4> {$sslStatus->startDate->toClientDateFormat()}
                     </div>
                 {/if}
             </div>
-            {if $sslStatus->isActive() || $sslStatus->needsResync()}
+            {if $sslStatus->isActive()}
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-5">
-                        <h4><strong>{$LANG.sslState.issuerName}</strong></h4>
-                        <span id="ssl-issuer">
-                            {if !$sslStatus->needsResync() || $sslStatus->issuerName}
-                                {$sslStatus->issuerName}
-                            {else}
-                                {$LANG.loading}
-                            {/if}
-                        </span>
+                        <h4><strong>{$LANG.sslState.issuerName}</strong></h4> {$sslStatus->issuerName}
                     </div>
                     <div class="col-sm-6">
-                        <h4><strong>{$LANG.sslState.expiryDate}</strong></h4>
-                        <span id="ssl-expirydate">
-                            {if !$sslStatus->needsResync() || $sslStatus->expiryDate}
-                                {$sslStatus->expiryDate->toClientDateFormat()}
-                            {else}
-                                {$LANG.loading}
-                            {/if}
-                        </span>
+                        <h4><strong>{$LANG.sslState.expiryDate}</strong></h4> {$sslStatus->expiryDate->toClientDateFormat()}
                     </div>
                 </div>
             {/if}
@@ -187,7 +177,6 @@
             </ul>
 
         {/if}
-
     </div>
     <div class="tab-pane fade" id="tabAutorenew">
 
@@ -237,7 +226,7 @@
                 {include file="$template/includes/alert.tpl" type="error" msg=$error textcenter=true}
             {/if}
         {/if}
-        
+
         {include file="$template/includes/alert.tpl" type="info" msg=$LANG.domainnsexp}
 
         <form class="form-horizontal" role="form" method="post" action="{$smarty.server.PHP_SELF}?action=domaindetails#tabNameservers">
@@ -408,3 +397,5 @@
         {/if}
     </div>
 </div>
+        <div style="text-align:center; padding-top:41px;">
+            <a href="clientarea.php?action=domains"><strong><<&nbsp;<u>Manage Domains</u><strong></a></div>
