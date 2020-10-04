@@ -31,7 +31,7 @@
                     <thead>
                         <tr>
                             <th width="20"></th>
-                            <th></th>
+                            <th>SSL Status</th>
                             <th>{$LANG.orderdomain} Name</th>
                             <th><!-- {$LANG.regdate} -->DNS Setting</th>
                             <th><!-- {$LANG.nextdue} -->Contact Information</th>
