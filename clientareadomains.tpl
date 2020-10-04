@@ -32,10 +32,10 @@
                         <tr>
                             <th width="20"></th>
                             <th></th>
-                            <th>{$LANG.orderdomain}</th>
-                            <th><!-- {$LANG.regdate} -->Manage</th>
-                            <th><!-- {$LANG.nextdue} -->WHOIS</th>
-                            <th><!-- {$LANG.domainsautorenew}--> Privacy</th>
+                            <th>{$LANG.orderdomain} Name</th>
+                            <th><!-- {$LANG.regdate} -->DNS Setting</th>
+                            <th><!-- {$LANG.nextdue} -->Contact Information</th>
+                            <th><!-- {$LANG.domainsautorenew}-->WHOIS Protection</th>
                             <th>{$LANG.domainstatus}</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -68,15 +68,12 @@
                                     Renew by&nbsp;
                                 {/if}
                                 {$domain.nextduedate}</span>
-                                {if $domain.autorenew}
-                                    <a data-toggle="tooltip" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled">
-                                    <i class="fas fa-fw fa-check text-success"></i> <!--{$LANG.domainsautorenewenabled}-->
-                                    </a>
+                       {**        {if $domain.autorenew}
+                                    <a data-toggle="tooltip" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Enabled"> {$LANG.domainsautorenewenabled}</a>
                                 {else}
-                                    <a  data-toggle="tooltip" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Disabled">
-                                    <i class="fas fa-fw fa-times text-danger"></i> <!--{$LANG.domainsautorenewdisabled} -->
-                                    </a>
+                                    <a  data-toggle="tooltip" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAutorenew" style="font-size:0.8em;" title="Auto Renew Disabled">{$LANG.domainsautorenewdisabled}</a>
                                 {/if}
+**}
                             {/if}
 
                             {if $domain.status eq 'Active' and $domain.expiringSoon}
@@ -84,8 +81,8 @@
                             {/if}
                             </td>
                             <td>{if $domain.status eq 'Active'}
-                                  <a  data-toggle="tooltip" title="Change Nameservers"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
-                                    <i class="glyphicon glyphicon-globe"></i>&nbsp;<strong>DNS</strong></a>
+                                  <a  data-toggle="tooltip" title="Change nameserver"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
+                                    <i class="glyphicon glyphicon-globe"></i>&nbsp;<strong>Edit</strong></a>
                                 {/if}
                                 {if $domain.status eq 'Grace'}
                                     {if $allowrenew}
@@ -100,14 +97,14 @@
                             </td>
                             <td><!--<span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}-->
                                 {if $domain.status eq 'Active'}
-                                <a  data-toggle="tooltip" title="Edit Contact Information" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
+                                <a  data-toggle="tooltip" title="Edit name, address, email and phone" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
                                     <i class="glyphicon glyphicon-user"></i> Edit</a>
                                 {/if}
                             </td>
                             <td>
                                 {if $domain.status eq 'Active'}
-                                <a  data-toggle="tooltip" title="WHOIS Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
-                                    <i class="glyphicon glyphicon-eye-open"></i> Manage</a>
+                                <a  data-toggle="tooltip" title="Hide contact information" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
+                                    <i class="glyphicon glyphicon-eye-open"></i> Enable</a>
                                 {/if}
                                 <!--
                                 {if $domain.status eq 'Active'}{if $domain.autorenew}
