@@ -100,13 +100,13 @@
                             </td>
                             <td><!--<span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}-->
                                 {if $domain.status eq 'Active'}
-                                <a  data-toggle="tooltip" title="Edit WHOIS" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
+                                <a  data-toggle="tooltip" title="Edit Contact Information" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
                                     <i class="glyphicon glyphicon-user"></i> Edit</a>
                                 {/if}
                             </td>
                             <td>
                                 {if $domain.status eq 'Active'}
-                                <a  data-toggle="tooltip" title="Manage Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
+                                <a  data-toggle="tooltip" title="WHOIS Privacy" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
                                     <i class="glyphicon glyphicon-eye-open"></i> Manage</a>
                                 {/if}
                                 <!--
