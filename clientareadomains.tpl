@@ -31,7 +31,7 @@
                     <thead>
                         <tr>
                             <th width="20"></th>
-                            <th>SSL Status</th>
+                            <!-- <th>SSL Status</th> -->
                             <th>{$LANG.orderdomain} Name</th>
                             <th><!-- {$LANG.regdate} -->DNS Setting</th>
                             <th><!-- {$LANG.nextdue} -->Contact Information</th>
@@ -47,13 +47,14 @@
                             <td>
                                 <input type="checkbox" name="domids[]" class="domids stopEventBubble" value="{$domain.id}" />
                             </td>
-                            <td class="text-center ssl-info" data-element-id="{$domain.id}" data-type="domain" data-domain="{$domain.domain}">
+     <!--                       <td class="ssl-info" data-element-id="{$domain.id}" data-type="domain" data-domain="{$domain.domain}">
                                 {if $domain.sslStatus}
                                     <img src="{$domain.sslStatus->getImagePath()}" data-toggle="tooltip" title="{$domain.sslStatus->getTooltipContent()}" class="{$domain.sslStatus->getClass()}"/>
                                 {elseif !$domain.isActive}
                                     <img src="{$BASE_PATH_IMG}/ssl/ssl-inactive-domain.png" data-toggle="tooltip" title="{lang key='sslState.sslInactiveDomain'}">
                                 {/if}
                             </td>
+     -->
                             <td><!-- <a href="http://{$domain.domain}" target="_blank">{$domain.domain}</a>-->
                             <span style="font-size:1.04em;font-weight:600;">{$domain.domain}</span>
                             {if $domain.status eq 'Active' or $domain.status eq 'Grace' or $domain.status eq 'Redemption'}
@@ -80,9 +81,9 @@
                                 <br/><span style="font-size:0.86em;color:#FF7777;">{lang key="domainsExpiringSoon"} in {$domain.daysUntilExpiry} days</span>
                             {/if}
                             </td>
-                            <td>{if $domain.status eq 'Active'}
+                            <td class="text-center">{if $domain.status eq 'Active'}
                                   <a  data-toggle="tooltip" title="Change nameserver"href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers">
-                                    <i class="glyphicon glyphicon-globe"></i>&nbsp;<strong>Edit</strong></a>
+                                    <i class="glyphicon glyphicon-globe"></i> Edit</a>
                                 {/if}
                                 {if $domain.status eq 'Grace'}
                                     {if $allowrenew}
@@ -95,13 +96,13 @@
                                 {/if}
                                 <!--{$domain.normalisedRegistrationDate}</span>{$domain.registrationdate}-->
                             </td>
-                            <td><!--<span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}-->
+                            <td class="text-center"><!--<span class="hidden">{$domain.normalisedNextDueDate}</span>{$domain.nextduedate}-->
                                 {if $domain.status eq 'Active'}
                                 <a  data-toggle="tooltip" title="Edit name, address, email and phone" href="clientarea.php?action=domaincontacts&domainid={$domain.id}">
                                     <i class="glyphicon glyphicon-user"></i> Edit</a>
                                 {/if}
                             </td>
-                            <td>
+                            <td class="text-center">
                                 {if $domain.status eq 'Active'}
                                 <a  data-toggle="tooltip" title="Hide contact information" href="clientarea.php?action=domaindetails&id={$domain.id}#tabAddons">
                                     <i class="glyphicon glyphicon-eye-open"></i> Enable</a>
@@ -125,8 +126,9 @@
                                 </span>
                             </td>
                            <td>
-                               <div class="btn-group btn-group-sm" style="width:30px /**60px**/;">
-                                <!-->    <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fas fa-wrench"></i></a> -->
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fas fa-wrench"></i></a>
+                           <!--    <div class="btn-group btn-group-sm" style="width:30px /**60px**/;">
+                                    <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fas fa-wrench"></i></a>
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                         <span class="caret"></span>
                                         <span class="sr-only">Toggle Dropdown</span>
@@ -149,6 +151,7 @@
                                         {/if}
                                     </ul>
                                 </div>
+                                -->
                             </td>
                         </tr>
                     {/if}
