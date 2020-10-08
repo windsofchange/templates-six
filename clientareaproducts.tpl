@@ -26,6 +26,7 @@
                 <th>{$LANG.clientareahostingnextduedate}</th>
                 <th>{$LANG.clientareastatus}</th>
                 <th class="responsive-edit-button" style="display: none;"></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -70,6 +71,9 @@
                             {$LANG.manageproduct}
                         </a>
                     </td>
+                    <!-- add details icon -->
+                    <td><a href="clientarea.php?action=productdetails&id={$service.id}" class="btn btn-default"><i class="fas fa-wrench"></i></a></td>
+                    <!-- End add details icon -->
                 </tr>
              {/if}
             {/foreach}
