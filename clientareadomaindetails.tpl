@@ -79,9 +79,9 @@
                 <h4><strong>{$LANG.domaindnsmanagement}</strong></h4>
                  {if $addons.dnsmanagement}
                     {if $addonstatus.dnsmanagement}
-                        <img src="assets/img/ssl/ssl-active.png" height="16" /> {$LANG.domainsautorenewenabled}
+                        <img src="assets/img/ssl/ssl-active.png" height="16" /> {$LANG.dnsmanagementenabled}
                     {else}
-                        <img src="assets/img/ssl/ssl-inactive.png" height="16" /> {$LANG.domainsautorenewdisenabled}
+                        <img src="assets/img/ssl/ssl-inactive.png" height="16" /> {$LANG.dnsmanagementdisabled}
                     {/if}
                  {else}
                     {$LANG.privacynotavailable}
