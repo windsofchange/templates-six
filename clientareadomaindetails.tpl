@@ -397,5 +397,5 @@
         {/if}
     </div>
 </div>
-        <div style="text-align:center; padding-top:41px;">
-            <a href="clientarea.php?action=domains"><strong><<&nbsp;<u>Manage Domains</u><strong></a></div>
+        <div style="text-align:center; padding-top:41px;font-size:1.15em;">
+            <a href="clientarea.php?action=domains"><strong><u><<&nbsp;Manage Domains</u><strong></a></div>
