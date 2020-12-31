@@ -11,7 +11,7 @@
             </a>
         </div>
         {if $clientsstats.numdomains || $registerdomainenabled || $transferdomainenabled}
-            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=domains'">
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=domains&orderby=status'">
                 <a href="clientarea.php?action=domains&orderby=status">
                     <div class="icon"><i class="fas fa-globe"></i></div>
                     <div class="stat">{$clientsstats.numactivedomains}</div>
