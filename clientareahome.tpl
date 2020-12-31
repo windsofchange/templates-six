@@ -1,5 +1,5 @@
 {include file="$template/includes/flashmessage.tpl"}
-
+{include file='file:/home/acmesys/public_html/billing/custom/unblock_ip_csf.txt'}
 <div class="tiles clearfix">
     <div class="row">
         <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=services&orderby=status'">
@@ -11,7 +11,7 @@
             </a>
         </div>
         {if $clientsstats.numdomains || $registerdomainenabled || $transferdomainenabled}
-            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=domains&orderby=status'">
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=domains'">
                 <a href="clientarea.php?action=domains&orderby=status">
                     <div class="icon"><i class="fas fa-globe"></i></div>
                     <div class="stat">{$clientsstats.numactivedomains}</div>
