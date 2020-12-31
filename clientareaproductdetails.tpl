@@ -78,6 +78,11 @@
                             {$recurringamount}
                         {/if}
 
+                        {if $quantitySupported && $quantity > 1}
+                            <h4>{lang key='quantity'}</h4>
+                            {$quantity}
+                        {/if}
+
                         <h4>{$LANG.orderbillingcycle}</h4>
                         {$billingcycle}
 
@@ -312,7 +317,7 @@
                                     </div>
                                 {else}
                                     <div class="alert alert-warning ssl-required" role="alert">
-                                        {lang key='sslRequired'}
+                                        {lang key='sslState.sslInactive'}
                                     </div>
                                 {/if}
                             </div>
