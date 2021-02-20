@@ -9,7 +9,6 @@
     {include file="$template/includes/head.tpl"}
 
     {$headoutput}
-    <link rel="stylesheet" type="text/css" href="/billing/templates/orderforms/{$carttpl}/css/cartcustom.css">
     
 </head>
 <body data-phone-cc-input="{$phoneNumberInputStyle}">
