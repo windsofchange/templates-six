@@ -1,6 +1,6 @@
 /* *****************************************************
 
-    ** Custom Stylesheet **
+    ** Custom Stylesheet ** SIX Template
 
     Any custom styling you want to apply should be
     defined here.
@@ -73,6 +73,41 @@ body {# font-size: 1.6em;}
     font-size: 12.5px !important;
     }
 }
+
+ul.top-nav>li.primary-action>a.btn {
+    background-color: #fff;color: #777;}
+input {font-size: 1.2em}
+div.header-lined .breadcrumb {font-size: .95em;}
+.label-info {background-color:#f77 ;} /* #0e4f76cf */
+.text-danger {color: #FB3138; /** #a94442; **/ }
+.panel {font-size: .99em;}
+.label2 {
+    display: inline;
+    padding: 10px 16px;
+    font-size: 18px;
+    font-family: "Open Sans";
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .3em;
+    margin-bottom: 0;
+}
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 18px;
+    margin-bottom: 5px;
+}
+.list-group {
+    font-size: 0.95em;
+}
+
+
+
+
+
+/** Properties moved to standart_cart custom.css **
+
 #order-standard_cart .sub-heading span, #order-standard_cart .sub-heading-borderless span {
     display: inline-block;
     position: relative;
@@ -87,13 +122,6 @@ body {# font-size: 1.6em;}
     font-weight: 700;
     color: #333;
 }
-ul.top-nav>li.primary-action>a.btn {
-    background-color: #fff;color: #777;}
-.label-info {background-color:#f77 ;} /* #0e4f76cf */
-.label-warning {background-color: #f90;}
-.btn-success {color: #fff; background-color: #293239; border-color: #293239;}
-.btn-success.disabled.focus, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled].focus, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover {
-    background-color: #f7b76ceb;border-color: #ffa53be0;}
 .tld-sale-group-sale {background-color: #f7d458;}
 .domain-checker-container {
     margin: 20px 0;
@@ -113,6 +141,13 @@ ul.top-nav>li.primary-action>a.btn {
 .featured-tld .price.org {background-color: #193B4E; color: #fff;}
 .featured-tld .price.ca {background-color: #ea3438; color: #fff;}
 .featured-tld .price.xyz {background-color: #ad4fc6;color: #fff;}
+.kbarticles a {font-size: 1.2em;font-weight: 500;}
+.spotlight-tld span {display: block;padding: 5px 0; font-weight: 900;}
+
+.label-warning {background-color: #f90;}
+.btn-success {color: #fff; background-color: #293239; border-color: #293239;}
+.btn-success.disabled.focus, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled].focus, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover {
+    background-color: #f7b76ceb;border-color: #ffa53be0;}
 .btn-group-sm>.btn, .btn-sm {margin-top:9px;}
 .btn.btn-add-to-cart.checkout {background-color: #5cb85c; border-color: #006600;}
 .unavailable {color: #ff0010;}
@@ -124,9 +159,13 @@ span.status-redemption, span.status-grace, span.status-suspended {
     color: #f77; background-color: #ff777703; border-color: #ccc;}
 span.status-redemption:hover, span.status-grace:hover, span.status-suspended:hover {
     color: #ffffff; background-color: #fF7777;border-color: #fdb1ad;}
-div.header-lined .breadcrumb {font-size: .95em;}
-.text-danger {color: #FB3138; /** #a94442; **/ }
-.added {color:#84ff85; font-size: 1.1em; font-weight: 900;}
+
+    
+
+.added {color: #5cb85c; 
+    /** color:#84ff85; 
+    font-size: 1.1em; 
+    font-weight: 900;}
 .achecker{color:white; font-size: 1em; font-weight: 900;}
 .acheckerspotlight {color: #84ff85; font-size: 0.9em; font-weight: 900;}
 .acheckerotherhits {color: #84ff85; font-size: 1em; font-weight: 900;}
@@ -136,29 +175,10 @@ div.header-lined .breadcrumb {font-size: .95em;}
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.spotlight-tld span {display: block;padding: 5px 0; font-weight: 900;}
-input {font-size: 1.2em}
-.kbarticles a {font-size: 1.2em;font-weight: 500;}
-.panel {font-size: .99em;}
-.label2 {
-    display: inline;
-    padding: 10px 16px;
-    font-size: 18px;
-    font-family: "Open Sans";
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .3em;
-    margin-bottom: 0;
-}
 
-.h4, .h5, .h6, h4, h5, h6 {
-    margin-top: 18px;
-    margin-bottom: 5px;
-}
 
-.list-group {
-    font-size: 0.95em;
-}
+
+** END **/
+
+
+
