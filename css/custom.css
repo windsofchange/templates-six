@@ -35,6 +35,20 @@ body {# font-size: 1.6em;}
     color: #fff;
     }
 }
+
+@media (max-width: 600px) {
+/** .dataTables_wrapper .dataTables_filter {
+    float: right;
+    margin-top: 10px;
+    width: 100%;
+**/
+
+div.dataTables_wrapper div.dataTables_info {
+    padding: 5px 30px!important;
+    font-weight: 300;
+}
+}
+
 @media only screen and (max-width: 380px) {
     /* For mobile phones: */
     .navbar-main {background-color: #2c517b;}
@@ -73,6 +87,9 @@ body {# font-size: 1.6em;}
     font-size: 12.5px !important;
     }
 }
+
+
+
 
 ul.top-nav>li.primary-action>a.btn {
     background-color: #fff;color: #777;}
