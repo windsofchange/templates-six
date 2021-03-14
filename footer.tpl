@@ -13,7 +13,7 @@
 <section id="footer">
     <div class="container">
         <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
-        <p>{lang key="copyrightFooterNotice" year=$date_year company=$companyname} | Visitor IP: {$smarty.server.REMOTE_ADDR} | <img src="https://www.indichosts.net/images/icon_ssl.png" height="18px" alt="secure data transfer"> Encrypted Connection | <img src="https://www.indichosts.net/billing/payment.png" height="21px" alt="accepted payment methods"></p>
+        <p>{lang key="copyrightFooterNotice" year=$date_year company=$companyname} | Visitor IP: {$smarty.server.REMOTE_ADDR} | <img src="//static.indichosts.net/images/icon_ssl.png" height="18px" alt="secure data transfer"> Encrypted Connection | <img src="//cache.indichosts.net/payment.png" height="21px" alt="accepted payment methods"></p>
     </div>
 </section>
 
