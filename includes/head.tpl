@@ -26,7 +26,7 @@
         requiredText = '{lang key="orderForm.required"}',
         recaptchaSiteKey = "{if $captcha}{$captcha->recaptcha->getSiteKey()}{/if}";
 </script>
-<!-- MOVED to CDN -- <script src="{assetPath file='scripts.min.js'}?v={$versionHash}"></script> END-->
+<!-- MOVED to CDN <script src="{assetPath file='scripts.min.js'}?v={$versionHash}"></script> END-->
 <script src="//cache.indichosts.net/templates/{$template}/js/scripts.min.js?v={$versionHash}"></script>
 
 {if $templatefile == "viewticket" && !$loggedin}
