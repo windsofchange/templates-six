@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	{*--    <title>{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}</title>  --*}
-	{include file='file:/home/acmesys/public_html/billing/custom/meta.txt'}
+	{include file='file:/home/acmesys/billing/custom/meta.txt'}
     {include file="$template/includes/head.tpl"}
 
     {$headoutput}
