@@ -1,8 +1,7 @@
 <!-- Styling -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600|Raleway:400,700" rel="stylesheet">
-<!-- START move to CDN  <link href="{assetPath file='all.min.css'}?v={$versionHash}" rel="stylesheet"> END -->
-<link href="{$WEB_ROOT}/assets/css/fontawesome-all.min.css" rel="stylesheet"> 
-<link href="//cache.indichosts.net/templates/{$template}/css/all.min.css?v={$versionHash}" rel="stylesheet">
+<link href="{assetPath file='all.min.css'}?v={$versionHash}" rel="stylesheet">
+<link href="{$WEB_ROOT}/assets/css/fontawesome-all.min.css" rel="stylesheet">
 
 {assetExists file="custom.css"}
 <link href="{$__assetPath__}" rel="stylesheet">
@@ -25,8 +24,7 @@
         requiredText = '{lang key="orderForm.required"}',
         recaptchaSiteKey = "{if $captcha}{$captcha->recaptcha->getSiteKey()}{/if}";
 </script>
-<!-- MOVED to CDN <script src="{assetPath file='scripts.min.js'}?v={$versionHash}"></script> END-->
-<script src="//cache.indichosts.net/templates/{$template}/js/scripts.min.js?v={$versionHash}"></script>
+<script src="{assetPath file='scripts.min.js'}?v={$versionHash}"></script>
 
 {if $templatefile == "viewticket" && !$loggedin}
   <meta name="robots" content="noindex" />
